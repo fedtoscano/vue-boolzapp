@@ -112,7 +112,7 @@
 
                     <div class="user-chat-input flex justify-between items-center h-[60px] bg-[#ebebeb] p-6">
                         <i class="fa-regular fa-face-smile text-2xl text-slate-500"></i>
-                        <input type="text" v-model="userMessage" placeholder="Scrivi un messaggio" class="w-5/6 py-2 px-3 text-sm rounded-md">
+                        <input type="text" v-model="userMessage" placeholder="Scrivi un messaggio" class="w-5/6 py-2 px-3 text-sm rounded-md" @keyup.enter="sendNewMessage">
                         <i class="fa-solid fa-microphone text-2xl text-slate-500"></i>
                     </div>
                 </section>

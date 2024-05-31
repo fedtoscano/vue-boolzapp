@@ -180,7 +180,13 @@ createApp({
         },
 
         sendNewMessage: function(){
-            
+            const newMessage={
+                date:'xx/xx/xxxx',
+                message: this.userMessage,
+                status:'sent'
+            }
+            this.contacts[this.activeContact].messages.push(newMessage)
+            console.log(newMessage)
             //mando un nuovo messaggio
         },
 
