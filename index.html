@@ -59,10 +59,10 @@
                     </div>
 
                     <div class="contact-list-container h-[calc(100%-180px)] bg-white flex flex-col gap-4">
-                        <article v-for="(contact, index) in contacts" class="flex items-center hover:bg-slate-300 relative">
+                        <article v-for="(contact, index) in contacts" class="flex items-center hover:bg-slate-300 relative" @click="focusContact(index)">
 
                             <div class="image-container">
-                                <img :src="`${contact.avatar}.jpg`" :alt="" class="size-[50px] rounded-full">
+                                <img :src="`${contact.avatar}.jpg`" :alt="`${contact.name} profile pic`" class="size-[50px] rounded-full">
                             </div> 
 
                             <div class="contact-info-container ml-4">
@@ -80,6 +80,7 @@
                 <!-- CHAT SECTION -->
                 <section class="chat h-full w-2/3">
 
+                        <!-- DESTINATARIO CHAT -->
                     <div class="user-navbar-container flex justify-between items-center h-[60px] bg-[#ebebeb]">
 
                         <div class="user-navbar-left h-full flex items-center ml-3">
@@ -97,26 +98,32 @@
                         </div>
 
                     </div>
-
+                        <!-- BOX MESSAGGI -->
                     <div class="chat-container h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
-                        <article class="bg-white w-80 py-3 px-3 rounded-lg relative mb-4 text-sm">
-                            <h1>sono un messaggio ricevuto</h1>
+                        
+
+                        <article class="bg-white w-[40%] py-3 px-3 rounded-lg relative mb-4 text-sm" v-for="(message, index) in contacts[this.activeContact].messages" v-show="(index===this.activeContact)">
+                            <h1>{{message.message}}</h1>
                             <span class="absolute text-xs text-slate-500 bottom-1 right-2">16:34</span>
                         </article>
 
-                        <article class="w-80 py-3 px-3 rounded-lg relative mb-4 msg-sent text-sm">
-                            <h1>sono un messaggio inviato</h1>
 
+                        <!-- MESSAGGIO DI PROVA -->
+                        <article class="w-[40%] py-3 px-3 rounded-lg relative mb-4 msg-sent text-sm">
+                            <h1>sono un messaggio inviato</h1>
                             <span class="text-xs text-slate-500">16:34</span>
                         </article>
-                    </div>
 
+                    </div>
+                        <!-- INPUT FIELD -->
                     <div class="user-chat-input flex justify-between items-center h-[60px] bg-[#ebebeb] p-6">
                         <i class="fa-regular fa-face-smile text-2xl text-slate-500"></i>
                         <input type="text" placeholder="Scrivi un messaggio" class="w-5/6 py-2 px-3 text-sm rounded-md">
                         <i class="fa-solid fa-microphone text-2xl text-slate-500"></i>
                     </div>
                 </section>
+
+
             </div>
         </div>
     </div>

@@ -167,10 +167,14 @@ createApp({
                 ],
             }
         ],
-                
+        
+        activeContact: 0,
         }
     },
     methods: {
-
+        focusContact: function(index){
+            this.activeContact=index
+            console.log(this.activeContact)
+        }
     }
 }).mount('#app')
