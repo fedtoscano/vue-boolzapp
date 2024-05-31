@@ -24,8 +24,10 @@
             <!-- BOOLZAPP -->
             <div id="boolzapp" class="flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] h-[700px] z-10 ">
                 
-                <!-- CONTACTS SECTION -->
+                <!--? CONTACTS SECTION -->
                 <section class="contacts h-full w-1/3">
+
+                    <!-- PANNELLO UTENTE -->
                     <div class="user-navbar-container flex justify-between items-center h-[60px] bg-[#ebebeb]">
 
                         <div class="user-navbar-left h-full flex items-center ml-3">
@@ -43,6 +45,7 @@
 
                     </div>
 
+                    <!-- BARRA NOTIFICHE -->
                     <div class="notifications-container flex items-center h-[80px] bg-[#8dd9fc]">
                         <div class="icon-container ml-4">
                             <i class="fa-solid fa-bell-slash text-[#8dd9fc] bg-white rounded-full text-2xl p-2.5"></i>
@@ -53,11 +56,14 @@
                         </div>
                     </div>
 
+                    <!-- BARRA DI RICERCA -->
+                    <!-- !inserire funzione di filtro -->
                     <div class="search-container h-[40px] bg-[#fafafa] flex items-center gap-2">
                         <i class="fa-solid fa-magnifying-glass px-6 py-1 bg-white rounded-md"></i>
                         <input type="text" placeholder="Cerca o inizia una nuova chat" class="w-2/3 text-sm rounded-md px-3 py-1">
                     </div>
 
+                    <!-- LISTA DEI CONTATTI -->
                     <div class="contact-list-container h-[calc(100%-180px)] bg-white flex flex-col gap-4">
                         <article v-for="(contact, contactIndex) in contacts" class="flex items-center hover:bg-slate-300 relative" @click="focusContact(contactIndex)">
 
@@ -77,10 +83,11 @@
                 </section>
 
 
-                <!-- CHAT SECTION -->
+                <!--? CHAT SECTION -->
                 <section class="chat h-full w-2/3">
 
                         <!-- DESTINATARIO CHAT -->
+                        <!-- ! aggiornare con i dati dell-utente attivo -->
                     <div class="user-navbar-container flex justify-between items-center h-[60px] bg-[#ebebeb]">
 
                         <div class="user-navbar-left h-full flex items-center ml-3">
@@ -98,9 +105,11 @@
                         </div>
 
                     </div>
+
                         <!-- BOX MESSAGGI -->
                     <div class="chat-container overflow-auto flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
 
+                        <!-- MESSAGGIO -->
                         <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-[40%] py-3 px-3 rounded-lg mb-4 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages">
                             <h1>{{message.message}}</h1>
                             <span class="float-end text-xs text-slate-500">{{message.date.split(" ")[1]}}</span>
