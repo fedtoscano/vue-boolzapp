@@ -189,10 +189,12 @@ createApp({
             console.log(newMessage)
             this.userMessage=""
             //mando un nuovo messaggio
+            setTimeout(this.contactReply, 1000);
         },
 
         contactReply: function(){
             // l-utente risponde
+            console.log("ti ho risposto")
         }
     }
 }).mount('#app')
