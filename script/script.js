@@ -1,4 +1,5 @@
-import { createApp } from 'vue'
+
+const { createApp } = Vue
 
 createApp({
     data() {
@@ -6,7 +7,7 @@ createApp({
         contacts: [
             {
                 name: 'Michele',
-                avatar: './img/avatar_1.png',
+                avatar: './img/avatar_1',
                 visible: true,
                 messages: [
                     {
@@ -28,7 +29,7 @@ createApp({
             },
             {
                 name: 'Fabio',
-                avatar: './img/avatar_2.png',
+                avatar: './img/avatar_2',
                 visible: true,
                 messages: [
                     {
@@ -50,7 +51,7 @@ createApp({
             },
             {
                 name: 'Samuele',
-                avatar: './img/avatar_3.png',
+                avatar: './img/avatar_3',
                 visible: true,
                 messages: [
                     {
@@ -72,7 +73,7 @@ createApp({
             },
             {
                 name: 'Alessandro B.',
-                avatar: './img/avatar_4.png',
+                avatar: './img/avatar_4',
                 visible: true,
                 messages: [
                     {
@@ -89,7 +90,7 @@ createApp({
             },
             {
                 name: 'Alessandro L.',
-                avatar: './img/avatar_5.png',
+                avatar: './img/avatar_5',
                 visible: true,
                 messages: [
                     {
@@ -106,7 +107,7 @@ createApp({
             },
             {
                 name: 'Claudia',
-                avatar: './img/avatar_6.png',
+                avatar: './img/avatar_6',
                 visible: true,
                 messages: [
                     {
@@ -128,7 +129,7 @@ createApp({
             },
             {
                 name: 'Federico',
-                avatar: './img/avatar_7.png',
+                avatar: './img/avatar_7',
                 visible: true,
                 messages: [
                     {
@@ -145,7 +146,7 @@ createApp({
             },
             {
                 name: 'Davide',
-                avatar: './img/avatar_8.png',
+                avatar: './img/avatar_8',
                 visible: true,
                 messages: [
                     {
