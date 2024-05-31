@@ -99,7 +99,7 @@
 
                     </div>
                         <!-- BOX MESSAGGI -->
-                    <div class="chat-container flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
+                    <div class="chat-container overflow-auto flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
 
                         <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-[40%] py-3 px-3 rounded-lg mb-4 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages">
                             <h1>{{message.message}}</h1>

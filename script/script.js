@@ -187,6 +187,7 @@ createApp({
             }
             this.contacts[this.activeContact].messages.push(newMessage)
             console.log(newMessage)
+            this.userMessage=""
             //mando un nuovo messaggio
         },
 
