@@ -16,3 +16,9 @@
     bottom: .25rem;
     left: .5rem;
 }
+
+.msg-received{
+    background-color: white;
+    float: left;
+    text-align: start;
+}

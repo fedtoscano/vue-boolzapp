@@ -169,12 +169,23 @@ createApp({
         ],
         
         activeContact: 0,
+        userMessage: "",
+
         }
     },
     methods: {
         focusContact: function(index){
             this.activeContact=index
             console.log(this.activeContact)
+        },
+
+        sendNewMessage: function(){
+            const
+            //mando un nuovo messaggio
+        },
+
+        contactReply: function(){
+            // l-utente risponde
         }
     }
 }).mount('#app')
