@@ -22,11 +22,10 @@
             <div class="background-big h-[calc(100vh-192px)] bg-background-gray"></div>
 
             <!-- BOOLZAPP -->
-            <div id="boolzapp" class="flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 w-5/6 h-[700px] z-10 ">
+            <div id="boolzapp" class="flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] h-[700px] z-10 ">
                 
                 <!-- CONTACTS SECTION -->
                 <section class="contacts h-full w-1/3">
-
                     <div class="user-navbar-container flex justify-between items-center h-[60px] bg-[#ebebeb]">
 
                         <div class="user-navbar-left h-full flex items-center ml-3">
@@ -56,10 +55,10 @@
 
                     <div class="search-container h-[40px] bg-[#fafafa] flex items-center gap-2">
                         <i class="fa-solid fa-magnifying-glass px-6 py-1 bg-white rounded-md"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="w-2/3 text-sm rounded-md">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="w-2/3 text-sm rounded-md px-3 py-1">
                     </div>
 
-                    <div class="contact-list-container bg-white flex flex-col gap-4">
+                    <div class="contact-list-container h-[calc(100%-180px)] bg-white flex flex-col gap-4">
                         <article v-for="(contact, index) in contacts" class="flex items-center hover:bg-slate-300 relative">
 
                             <div class="image-container">
