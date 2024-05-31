@@ -180,7 +180,7 @@ createApp({
         },
 
         sendNewMessage: function(){
-            const
+            
             //mando un nuovo messaggio
         },
 

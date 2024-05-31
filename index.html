@@ -99,20 +99,12 @@
 
                     </div>
                         <!-- BOX MESSAGGI -->
-                    <div class="chat-container h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
-                        
+                    <div class="chat-container flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
 
-                        <article class="w-[40%] py-3 px-3 rounded-lg mb-4 text-sm" :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" v-for="(message, index) in contacts[this.activeContact].messages">
+                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-[40%] py-3 px-3 rounded-lg mb-4 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages">
                             <h1>{{message.message}}</h1>
                             <span class="float-end text-xs text-slate-500">{{message.date.split(" ")[1]}}</span>
                         </article>
-
-
-                        <!-- MESSAGGIO DI PROVA -->
-                        <!-- <article class="w-[40%] py-3 px-3 rounded-lg relative mb-4 msg-sent text-sm">
-                            <h1>sono un messaggio inviato</h1>
-                            <span class="text-xs text-slate-500">16:34</span>
-                        </article> -->
 
                     </div>
 

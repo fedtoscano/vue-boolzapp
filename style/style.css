@@ -5,20 +5,27 @@
 .bg-background-gray{
     background-color: rgb(218, 219, 213)
 }
-
 .msg-sent{
     background-color: rgb(214, 250, 187);
-    float: right;
     text-align: end;
-}
-.msg-sent>span{
-    position: absolute;
-    bottom: .25rem;
-    left: .5rem;
+    align-self: flex-end;
 }
 
 .msg-received{
     background-color: white;
-    float: left;
     text-align: start;
+    align-self: flex-start;
+}
+
+.msg-sent>span{
+    bottom: .25rem;
+    left: .5rem;
+    float: left;
+}
+
+/* !fixare comportamento */
+.msg-received>span{
+    bottom: .25rem;
+    left: .5rem;
+    float: right;
 }
