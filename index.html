@@ -95,7 +95,8 @@
                             <img :src="`${this.contacts[this.activeContact].avatar}.jpg`" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
                             <div class="info-container">
                                 <span class="font-medium">{{this.contacts[this.activeContact].name}}</span>
-                                <p class="text-xs text-slate-700">Ultimo accesso oggi alle 12.00</p>
+                                <!-- !perchè non riesco a selezionare l'ultimo elemento dell'array messages?                                   xxxx -->
+                                <p class="text-xs text-slate-700">Ultimo accesso oggi alle <span>{{this.contacts[this.activeContact].messages[1].date.split(" ")[1].slice(0,5)}}</span></p>
                             </div>
                         </div>
 
@@ -111,15 +112,14 @@
                     <div class="chat-container overflow-auto flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
 
                         <!-- MESSAGGIO -->
-                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-[40%] py-3 px-3 rounded-lg mb-4 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages" :key="index">
-                            <h1>{{message.message}}</h1>
-                            <span class="text-xs text-slate-500">{{message.date.split(" ")[1].slice(0,5)}}</span>
+                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-fit overflow-x-auto text-justify max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages" :key="index">
+                            <h1 class="mb-1">{{message.message}}</h1>
+                            <span class="text-[.7em] text-slate-500">{{message.date.split(" ")[1].slice(0,5)}}</span>
                         </article>
 
                     </div>
 
                         <!-- INPUT FIELD -->
-
                     <div class="user-chat-input flex justify-between items-center h-[60px] bg-[#ebebeb] p-6">
                         <i class="fa-regular fa-face-smile text-2xl text-slate-500"></i>
                         <input type="text" v-model="userMessage" placeholder="Scrivi un messaggio" class="w-5/6 py-2 px-3 text-sm rounded-md" @keyup.enter="sendNewMessage">
