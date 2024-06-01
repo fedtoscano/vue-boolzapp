@@ -173,6 +173,8 @@ createApp({
 
         }
     },
+
+
     methods: {
         focusContact: function(index){
             this.activeContact=index
@@ -181,7 +183,7 @@ createApp({
 
         sendNewMessage: function(){
             const newMessage={
-                date:'xx/xx/xxxx',
+                date:'10/01/2020 16:15:22',
                 message: this.userMessage,
                 status:'sent'
             }
@@ -194,7 +196,12 @@ createApp({
 
         contactReply: function(){
             // l-utente risponde
-            console.log("ti ho risposto")
+            const newReply={
+                date:'10/01/2020 16:15:22',
+                message: "ok",
+                status:'received'
+            }
+            this.contacts[this.activeContact].messages.push(newReply)
         }
     }
 }).mount('#app')

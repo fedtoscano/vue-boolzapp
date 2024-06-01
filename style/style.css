@@ -20,12 +20,12 @@
 .msg-sent>span{
     bottom: .25rem;
     left: .5rem;
-    float: left;
+    text-align: start;
 }
 
 /* !fixare comportamento */
 .msg-received>span{
     bottom: .25rem;
     left: .5rem;
-    float: right;
+    text-align: end;
 }

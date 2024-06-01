@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
     <!-- TAILWIND CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FONT AWESOME CDN -->
@@ -30,8 +32,9 @@
                     <!-- PANNELLO UTENTE -->
                     <div class="user-navbar-container flex justify-between items-center h-[60px] bg-[#ebebeb]">
 
+                            <!-- IMMAGINE PROFILO E NOME UTENTE -->
                         <div class="user-navbar-left h-full flex items-center ml-3">
-                            <img src="./img/avatar_1.jpg" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
+                            <img src="./img/avatar_io.jpg" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
                             <span>Federico</span>
                         </div>
 
@@ -87,13 +90,12 @@
                 <section class="chat h-full w-2/3">
 
                         <!-- DESTINATARIO CHAT -->
-                        <!-- ! aggiornare con i dati dell-utente attivo -->
                     <div class="user-navbar-container flex justify-between items-center h-[60px] bg-[#ebebeb]">
 
                         <div class="user-navbar-left h-full flex items-center ml-3">
-                            <img src="./img/avatar_1.jpg" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
+                            <img :src="`${this.contacts[this.activeContact].avatar}.jpg`" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
                             <div class="info-container">
-                                <span class="font-medium">Federico</span>
+                                <span class="font-medium">{{this.contacts[this.activeContact].name}}</span>
                                 <p class="text-xs text-slate-700">Ultimo accesso oggi alle 12.00</p>
                             </div>
                         </div>
@@ -112,7 +114,7 @@
                         <!-- MESSAGGIO -->
                         <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-[40%] py-3 px-3 rounded-lg mb-4 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages">
                             <h1>{{message.message}}</h1>
-                            <span class="float-end text-xs text-slate-500">{{message.date.split(" ")[1]}}</span>
+                            <span class="text-xs text-slate-500">{{message.date.split(" ")[1]}}</span>
                         </article>
 
                     </div>
@@ -131,7 +133,8 @@
         </div>
     </div>
 
-    
+    <!-- LUXON JS -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>    
     <!-- VUE 3 -->
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <!-- JS -->
