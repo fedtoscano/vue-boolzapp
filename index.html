@@ -112,7 +112,7 @@
                     <div class="chat-container overflow-auto flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
 
                         <!-- MESSAGGIO -->
-                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-fit overflow-x-auto text-justify max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages" :key="index">
+                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-fit overflow-x-auto text-justify min-w-[10%] max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages" :key="index">
                             <h1 class="mb-1">{{message.message}}</h1>
                             <span class="text-[.7em] text-slate-500">{{message.date.split(" ")[1].slice(0,5)}}</span>
                         </article>
@@ -141,5 +141,4 @@
 </html>
 
 
-<!-- ! sistemare la grandezza dei messaggi per adattarli al contenuto
     !funzione cancella messaggio -->
