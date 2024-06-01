@@ -170,6 +170,7 @@ createApp({
         
         activeContact: 0,
         userMessage: "",
+        userFilter:"",
 
         }
     },
@@ -179,6 +180,20 @@ createApp({
         focusContact: function(index){
             this.activeContact=index
             console.log(this.activeContact)
+        },
+
+        filterContact: function(string, arr){
+            arr.forEach(contact => {
+                contact.visible = false;
+            });
+            // console.log(arr)
+
+            const filteredArray = arr.filter(contact => contact.name.toLowerCase().trim().includes(string))
+            filteredArray.forEach(contact => {
+                contact.visible = true;
+            });
+            // console.log(filteredArray);
+
         },
 
         sendNewMessage: function(){

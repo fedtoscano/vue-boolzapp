@@ -63,12 +63,12 @@
                     <!-- !inserire funzione di filtro -->
                     <div class="search-container h-[40px] bg-[#fafafa] flex items-center gap-2">
                         <i class="fa-solid fa-magnifying-glass px-6 py-1 bg-white rounded-md"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="w-2/3 text-sm rounded-md px-3 py-1">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="w-2/3 text-sm rounded-md px-3 py-1" v-model="userFilter" @keyup="filterContact(this.userFilter, this.contacts)">
                     </div>
 
                     <!-- LISTA DEI CONTATTI -->
                     <div class="contact-list-container h-[calc(100%-180px)] bg-white flex flex-col gap-4">
-                        <article v-for="(contact, contactIndex) in contacts" class="flex items-center hover:bg-slate-300 relative" @click="focusContact(contactIndex)">
+                        <article v-for="(contact, contactIndex) in contacts" :key="contact.name" class="flex items-center hover:bg-slate-300 relative" @click="focusContact(contactIndex)" :class="{'hidden': contact.visible===false}">
 
                             <div class="image-container">
                                 <img :src="`${contact.avatar}.jpg`" :alt="`${contact.name} profile pic`" class="size-[50px] rounded-full">
@@ -112,7 +112,7 @@
                     <div class="chat-container overflow-auto flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
 
                         <!-- MESSAGGIO -->
-                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-[40%] py-3 px-3 rounded-lg mb-4 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages">
+                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-[40%] py-3 px-3 rounded-lg mb-4 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages" :key="index">
                             <h1>{{message.message}}</h1>
                             <span class="text-xs text-slate-500">{{message.date.split(" ")[1]}}</span>
                         </article>
