@@ -5,25 +5,24 @@
 .bg-background-gray{
     background-color: rgb(218, 219, 213)
 }
+
+
+
 .msg-sent{
     background-color: rgb(214, 250, 187);
     text-align: end;
     align-self: flex-end;
 }
-
 .msg-received{
     background-color: white;
     text-align: start;
     align-self: flex-start;
 }
-
 .msg-sent>span{
     bottom: .25rem;
     left: .5rem;
     text-align: start;
 }
-
-/* !fixare comportamento */
 .msg-received>span{
     bottom: .25rem;
     left: .5rem;

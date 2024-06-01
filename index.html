@@ -85,7 +85,6 @@
                     </div>
                 </section>
 
-
                 <!--? CHAT SECTION -->
                 <section class="chat h-full w-2/3">
 
@@ -114,7 +113,7 @@
                         <!-- MESSAGGIO -->
                         <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-[40%] py-3 px-3 rounded-lg mb-4 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages" :key="index">
                             <h1>{{message.message}}</h1>
-                            <span class="text-xs text-slate-500">{{message.date.split(" ")[1]}}</span>
+                            <span class="text-xs text-slate-500">{{message.date.split(" ")[1].slice(0,5)}}</span>
                         </article>
 
                     </div>
@@ -128,7 +127,6 @@
                     </div>
                 </section>
 
-
             </div>
         </div>
     </div>
@@ -141,3 +139,7 @@
     <script src="./script/script.js"></script>
 </body>
 </html>
+
+
+<!-- ! sistemare la grandezza dei messaggi per adattarli al contenuto
+    !funzione cancella messaggio -->

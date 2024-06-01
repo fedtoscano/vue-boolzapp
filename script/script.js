@@ -177,6 +177,7 @@ createApp({
 
 
     methods: {
+
         focusContact: function(index){
             this.activeContact=index
             console.log(this.activeContact)
@@ -186,14 +187,11 @@ createApp({
             arr.forEach(contact => {
                 contact.visible = false;
             });
-            // console.log(arr)
 
             const filteredArray = arr.filter(contact => contact.name.toLowerCase().trim().includes(string))
             filteredArray.forEach(contact => {
                 contact.visible = true;
             });
-            // console.log(filteredArray);
-
         },
 
         sendNewMessage: function(){
@@ -203,7 +201,6 @@ createApp({
                 status:'sent'
             }
             this.contacts[this.activeContact].messages.push(newMessage)
-            console.log(newMessage)
             this.userMessage=""
             //mando un nuovo messaggio
             setTimeout(this.contactReply, 1000);
@@ -218,5 +215,6 @@ createApp({
             }
             this.contacts[this.activeContact].messages.push(newReply)
         }
+
     }
 }).mount('#app')
