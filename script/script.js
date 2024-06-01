@@ -224,7 +224,13 @@ createApp({
             }else{
                 this.visibleDivIndex=null
             }
+        },
+
+        removeMessage: function(index){
+            this.contacts[this.activeContact].messages.splice(index, 1)
+            this.visibleDivIndex=null
         }
+        
 
     }
 }).mount('#app')

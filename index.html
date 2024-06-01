@@ -119,7 +119,12 @@
                             <button :class="(message.status==='sent') ? 'self-start' : 'self-end'" @click="toggleModifyDivVisibility(index)">
                                 <i class="fa-solid fa-chevron-down" :class="(message.status==='received') ? 'text-end' : ''"></i>
                             </button>
-                            <div class="modify-message size-16 rounded-lg absolute translate-y-[55px] bg-red-600" :class="{'-translate-x-[60px]': message.status === 'sent','translate-x-[60px]': message.status === 'received'}" v-show="visibleDivIndex === index"></div>
+                            <div class="modify-message flex justify-center items-center size-16 rounded-lg absolute translate-y-[55px] bg-[#C6D3BD]" :class="{'-translate-x-[60px]': message.status === 'sent','translate-x-[60px]': message.status === 'received'}" v-show="visibleDivIndex === index">
+                                <button @click="removeMessage(index)">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                                    
+                            </div>
                         </article>
 
                     </div>
