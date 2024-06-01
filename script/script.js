@@ -168,6 +168,8 @@ createApp({
             }
         ],
         
+
+        visibleDivIndex: null,
         activeContact: 0,
         userMessage: "",
         userFilter:"",
@@ -214,6 +216,14 @@ createApp({
                 status:'received'
             }
             this.contacts[this.activeContact].messages.push(newReply)
+        },
+
+        toggleModifyDivVisibility: function(index){
+            if(this.visibleDivIndex===null){
+                this.visibleDivIndex=index
+            }else{
+                this.visibleDivIndex=null
+            }
         }
 
     }

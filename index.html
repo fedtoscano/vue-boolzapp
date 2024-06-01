@@ -112,9 +112,14 @@
                     <div class="chat-container overflow-auto flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
 
                         <!-- MESSAGGIO -->
+                    
                         <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-fit overflow-x-auto text-justify min-w-[10%] max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, index) in contacts[this.activeContact].messages" :key="index">
                             <h1 class="mb-1">{{message.message}}</h1>
                             <span class="text-[.7em] text-slate-500">{{message.date.split(" ")[1].slice(0,5)}}</span>
+                            <button :class="(message.status==='sent') ? 'self-start' : 'self-end'" @click="toggleModifyDivVisibility(index)">
+                                <i class="fa-solid fa-chevron-down" :class="(message.status==='received') ? 'text-end' : ''"></i>
+                            </button>
+                            <div class="modify-message size-16 rounded-lg absolute translate-y-[55px] bg-red-600" :class="{'-translate-x-[60px]': message.status === 'sent','translate-x-[60px]': message.status === 'received'}" v-show="visibleDivIndex === index"></div>
                         </article>
 
                     </div>
@@ -141,4 +146,4 @@
 </html>
 
 
-    !funzione cancella messaggio -->
+    <!-- !funzione cancella messaggio -->
