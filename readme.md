@@ -42,11 +42,13 @@ torna a visualizzare il microfono. -->
 <!-- · predisporre una lista di frasi e/o citazioni da utilizzare al posto della risposta "ok:" quando il pc
 risponde, anziché scrivere "ok", scegliere una frase random dalla lista e utilizzarla come testo
 del messaggio di risposta del pc -->
+<!-- 
 
+· visualizzare nella lista dei contatti l'ultimo messaggio inviato/ricevuto da ciascun contatto -->
 
-· visualizzare nella lista dei contatti l'ultimo messaggio inviato/ricevuto da ciascun contatto
-
+???
 · inserire l'orario corretto nei messaggi (v. note day.js)
+
 
 · sotto al nome del contatto nella parte in alto a destra, cambiare l'indicazione dello stato:
 visualizzare il testo "sta scrivendo ... " nel timeout in cui il pc risponde, poi mantenere la scritta
@@ -79,5 +81,6 @@ visualizzazione della chat alla visualizzazione di tutti i contatti
 
 · aggiungere un'icona per ingrandire o rimpicciolire il font: dovrebbe essere sufficiente
 aggiungere una classe al wrapper principale
+
 . aggiungere un'icona per cambiare la modalità light/dark: dovrebbe essere sufficiente
 aggiungere una classe al wrapper principale

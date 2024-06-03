@@ -181,6 +181,7 @@ createApp({
         activeContact: 0,
         userMessage: "",
         userFilter:"",
+        userIsWriting: false,
 
         }
     },
@@ -214,6 +215,7 @@ createApp({
                 this.contacts[this.activeContact].messages.push(newMessage)
                 this.userMessage=""
                 //mando un nuovo messaggio
+                this.userIsWriting = true;
                 setTimeout(this.contactReply, 1000);
             } else{
                 console.warn("invalid message length")
@@ -228,7 +230,8 @@ createApp({
                 status:'received'
             }
             this.contacts[this.activeContact].messages.push(newReply);
-            console.log(newReply.message)
+            this.userIsWriting = false;
+
         },
 
         toggleModifyDivVisibility: function(index){
