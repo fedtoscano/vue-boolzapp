@@ -19,8 +19,7 @@ Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati
     bindo la proprieta visible alla classe che mostra o meno il contatto
         se è vera, display block
         se è false, display none -->
+
 <!-- 
 Milestone 5 - opzionale
-Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
-
- -->
+Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato-->
