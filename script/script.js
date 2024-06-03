@@ -224,10 +224,11 @@ createApp({
             // l-utente risponde
             const newReply={
                 date:'10/01/2020 16:15:22',
-                message: this.randomAnswers[this.randomNumber(0, this.randomAnswers.length)],
+                message: this.randomAnswers[this.randomNumber(0, this.randomAnswers.length-1)],
                 status:'received'
             }
-            this.contacts[this.activeContact].messages.push(newReply)
+            this.contacts[this.activeContact].messages.push(newReply);
+            console.log(newReply.message)
         },
 
         toggleModifyDivVisibility: function(index){
@@ -242,7 +243,6 @@ createApp({
             this.contacts[this.activeContact].messages.splice(index, 1);
             this.visibleDivIndex=null
         },
-
 
         //? UTILITIES
         randomNumber: function(min, max) {
