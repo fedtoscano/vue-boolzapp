@@ -95,8 +95,7 @@
                             <img :src="`${contacts[activeContact].avatar}.jpg`" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
                             <div class="info-container">
                                 <span class="font-medium">{{contacts[activeContact].name}}</span>
-                                <!-- !perchè non riesco a selezionare l'ultimo elemento dell'array messages?                                   xxxx -->
-                                <p class="text-xs text-slate-700">Ultimo accesso oggi alle <span>{{contacts[activeContact].messages[1].date.split(" ")[1].slice(0,5)}}</span></p>
+                                <p class="text-xs text-slate-700">Ultimo accesso oggi alle <span>{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date.split(" ")[1].slice(0,5)}}</span></p>
                             </div>
                         </div>
 
@@ -123,7 +122,6 @@
                                 <button @click="removeMessage(messageIndex)">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
-                                    
                             </div>
                         </article>
 
