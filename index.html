@@ -94,8 +94,10 @@
                             <img :src="`${contacts[activeContact].avatar}.jpg`" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
                             <div class="info-container">
                                 <span class="font-medium">{{contacts[activeContact].name}}</span>
-                                <p class="text-xs text-slate-700" v-if="!userIsWriting">Ultimo accesso oggi alle <span>{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date.split(" ")[1].slice(0,5)}}</span></p>
+                                <p class="text-xs text-slate-700" v-if="!isUserOnline">Ultimo accesso oggi alle <span>{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date.split(" ")[1].slice(0,5)}}</span></p>
                                 <p class="text-xs text-slate-700" v-if="userIsWriting">sta scrivendo...</p>
+                                <p class="text-xs text-slate-700" v-if="isUserOnline && !userIsWriting">online</p>
+
                             </div>
                         </div>
 

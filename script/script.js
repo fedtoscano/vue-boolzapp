@@ -182,6 +182,7 @@ createApp({
         userMessage: "",
         userFilter:"",
         userIsWriting: false,
+        isUserOnline: false, 
 
         }
     },
@@ -215,8 +216,15 @@ createApp({
                 this.contacts[this.activeContact].messages.push(newMessage)
                 this.userMessage=""
                 //mando un nuovo messaggio
-                this.userIsWriting = true;
-                setTimeout(this.contactReply, 1000);
+                this.isUserOnline = true;
+
+                //dopo un secondo l-utente scrive
+                setTimeout(()=>{
+                    this.userIsWriting = true;
+                }, 1000);
+
+                //dopo 2 secondi arriva la risposta
+                setTimeout(this.contactReply, 2000);
             } else{
                 console.warn("invalid message length")
             }
@@ -231,6 +239,10 @@ createApp({
             }
             this.contacts[this.activeContact].messages.push(newReply);
             this.userIsWriting = false;
+            
+            setTimeout(() => {
+                this.isUserOnline = false;
+            }, 1000);
 
         },
 
