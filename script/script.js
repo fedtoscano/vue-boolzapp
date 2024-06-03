@@ -182,7 +182,7 @@ createApp({
 
         focusContact: function(index){
             this.activeContact=index
-            console.log(this.activeContact)
+            // console.log(this.activeContact)
         },
 
         filterContact: function(string, arr){
@@ -227,8 +227,40 @@ createApp({
         },
 
         removeMessage: function(index){
-            this.contacts[this.activeContact].messages.splice(index, 1)
-            console.log(this.contacts[this.activeContact].messages)        
+            console.log("lista messaggi prima dello splice")
+            console.log(this.contacts[this.activeContact].messages)
+            
+            console.log("lista dei contatti prima dello splice")
+            console.log(this.contacts)
+
+            console.log("indice del contatto attivo prima dello splice")
+            console.log(this.activeContact)
+
+            console.log("indice prima dello splice")
+            console.log(index)
+
+            //! SPLICE
+            if(index >= 0 && index < this.contacts[this.activeContact].messages.length){
+                // Rimuove il messaggio all'indice specificato
+                this.contacts[this.activeContact].messages.splice(index, 1);
+                } else {
+                console.error('Indice non valido:', index);
+                }
+
+            //! ************
+            console.log("***********SPLICE AVVENUTO************")
+
+            console.log("Lista dei messaggi dopo lo splice");
+            console.log(this.contacts[this.activeContact].messages)
+
+            
+            console.log("lista dei contatti dopo lo splice")
+            console.log(this.contacts)
+
+            console.log("indice del contatto attivo dopo lo splice")
+            console.log(this.activeContact)
+
+            console.log("indice dopo lo splice")
             console.log(index)
             this.visibleDivIndex=null
         }
