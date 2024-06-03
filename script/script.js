@@ -228,9 +228,10 @@ createApp({
 
         removeMessage: function(index){
             this.contacts[this.activeContact].messages.splice(index, 1)
+            console.log(this.contacts[this.activeContact].messages)        
+            console.log(index)
             this.visibleDivIndex=null
         }
         
-
     }
 }).mount('#app')
