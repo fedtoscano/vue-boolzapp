@@ -63,7 +63,7 @@
                     <!-- !inserire funzione di filtro -->
                     <div class="search-container h-[40px] bg-[#fafafa] flex items-center gap-2">
                         <i class="fa-solid fa-magnifying-glass px-6 py-1 bg-white rounded-md"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="w-2/3 text-sm rounded-md px-3 py-1" v-model="userFilter" @keyup="filterContact(this.userFilter, this.contacts)">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="w-2/3 text-sm rounded-md px-3 py-1" v-model="userFilter" @keyup="filterContact(userFilter, contacts)">
                     </div>
 
                     <!-- LISTA DEI CONTATTI -->
@@ -92,11 +92,11 @@
                     <div class="user-navbar-container flex justify-between items-center h-[60px] bg-[#ebebeb]">
 
                         <div class="user-navbar-left h-full flex items-center ml-3">
-                            <img :src="`${this.contacts[this.activeContact].avatar}.jpg`" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
+                            <img :src="`${contacts[activeContact].avatar}.jpg`" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
                             <div class="info-container">
-                                <span class="font-medium">{{this.contacts[this.activeContact].name}}</span>
+                                <span class="font-medium">{{contacts[activeContact].name}}</span>
                                 <!-- !perchè non riesco a selezionare l'ultimo elemento dell'array messages?                                   xxxx -->
-                                <p class="text-xs text-slate-700">Ultimo accesso oggi alle <span>{{this.contacts[this.activeContact].messages[1].date.split(" ")[1].slice(0,5)}}</span></p>
+                                <p class="text-xs text-slate-700">Ultimo accesso oggi alle <span>{{contacts[activeContact].messages[1].date.split(" ")[1].slice(0,5)}}</span></p>
                             </div>
                         </div>
 
