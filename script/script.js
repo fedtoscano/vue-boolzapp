@@ -202,10 +202,14 @@ createApp({
                 message: this.userMessage,
                 status:'sent'
             }
-            this.contacts[this.activeContact].messages.push(newMessage)
-            this.userMessage=""
-            //mando un nuovo messaggio
-            setTimeout(this.contactReply, 1000);
+            if(newMessage.message.trim().length>=1){
+                this.contacts[this.activeContact].messages.push(newMessage)
+                this.userMessage=""
+                //mando un nuovo messaggio
+                setTimeout(this.contactReply, 1000);
+            } else{
+                console.warn("invalid message length")
+            }
         },
 
         contactReply: function(){
@@ -229,7 +233,6 @@ createApp({
         removeMessage: function(index){
             this.contacts[this.activeContact].messages.splice(index, 1);
             this.visibleDivIndex=null
-        }
-        
+        },
     }
 }).mount('#app')
