@@ -111,7 +111,6 @@
                     <div class="chat-container overflow-auto flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
 
                         <!-- MESSAGGIO -->
-                    
                         <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-fit text-justify min-w-[10%] max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex">
                             <h1 class="mb-1">{{message.message}}</h1>
                             <span class="text-[.7em] text-slate-500">{{message.date.split(" ")[1].slice(0,5)}}</span>
@@ -126,14 +125,16 @@
                                 </button>
                             </div>
                         </article>
-
                     </div>
 
                         <!-- INPUT FIELD -->
                     <div class="user-chat-input flex justify-between items-center h-[60px] bg-[#ebebeb] p-6">
                         <i class="fa-regular fa-face-smile text-2xl text-slate-500"></i>
                         <input type="text" v-model="userMessage" placeholder="Scrivi un messaggio" class="w-5/6 py-2 px-3 text-sm rounded-md" @keyup.enter="sendNewMessage">
-                        <i class="fa-solid fa-microphone text-2xl text-slate-500"></i>
+                        <button>
+                            <i class="fa-solid fa-paper-plane text-2xl text-slate-500" v-show="userMessage.length>=1" @click="sendNewMessage"></i>
+                        </button>
+                        <i class="fa-solid fa-microphone text-2xl text-slate-500" v-show="!userMessage.length"></i>
                     </div>
                 </section>
 
