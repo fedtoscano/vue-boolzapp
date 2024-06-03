@@ -63,6 +63,8 @@ di essi si cancellano rispettivamente tutti i messaggi di quel contatto (quindi 
 conversazione vuota) oppure l'intera chat comprensiva di tutti i dati del contatto oltre che tutti i
 suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra)
 
+
+
 · dare la possibilità all'utente di aggiungere una nuova conversazione, inserendo in un popup il
 nome e il link all'icona del nuovo contatto
 

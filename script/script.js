@@ -1,5 +1,6 @@
 
 const { createApp } = Vue
+const { DateTime } = luxon
 
 createApp({
     data() {
@@ -183,6 +184,7 @@ createApp({
         userFilter:"",
         userIsWriting: false,
         isUserOnline: false, 
+        isOptionsPanelActive: false,
 
         }
     },

@@ -39,10 +39,34 @@
                         </div>
 
                         <div class="user-navbar-right">
-                            <div class="icons-container text-slate-400 text-2xl me-5 flex">
+                            <div class="icons-container text-slate-400 text-2xl me-5 flex relative items-center">
                                 <i class="fa-solid fa-circle-notch me-5"></i>
                                 <i class="fa-solid fa-message me-5"></i>
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                <button @click="isOptionsPanelActive=!isOptionsPanelActive">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+
+                                <div class="w-[120px] h-[80px] bg-[#C6D3BD] rounded-lg absolute left-24 top-6 p-1" v-show="isOptionsPanelActive">
+
+                                    <ul>
+                                        <li>
+                                            <button>
+                                                <span class="text-xs text-white">
+                                                    Elimina messaggi
+                                                </span>
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button>
+                                                <span class="text-xs text-white">
+                                                    Elimina chat
+                                                </span>
+                                            </button>
+                                        </li>
+                                    </ul>
+
+                                </div>
                             </div>
                         </div>
 
