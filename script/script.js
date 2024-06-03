@@ -168,7 +168,15 @@ createApp({
             }
         ],
         
-
+        randomAnswers: [
+            "Grazie mille!", 
+            "Adesso che fai il programmatore puoi formattarmi il pc!", 
+            "Allora ci vediamo!",
+            "Non penso proprio", 
+            "Gino Ginetti al ginepraio gigioneggia",
+            "Posso già intuire che il codice non funzionerà...", 
+            "Ammazza oh",
+        ],
         visibleDivIndex: null,
         activeContact: 0,
         userMessage: "",
@@ -216,7 +224,7 @@ createApp({
             // l-utente risponde
             const newReply={
                 date:'10/01/2020 16:15:22',
-                message: "ok",
+                message: this.randomAnswers[this.randomNumber(0, this.randomAnswers.length)],
                 status:'received'
             }
             this.contacts[this.activeContact].messages.push(newReply)
@@ -234,5 +242,11 @@ createApp({
             this.contacts[this.activeContact].messages.splice(index, 1);
             this.visibleDivIndex=null
         },
+
+
+        //? UTILITIES
+        randomNumber: function(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
     }
 }).mount('#app')

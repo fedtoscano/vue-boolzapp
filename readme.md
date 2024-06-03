@@ -39,9 +39,11 @@ torna a visualizzare il microfono. -->
 
 <!-- B) inviare quindi il messaggio anche cliccando sull'icona dell'aeroplano -->
 
-· predisporre una lista di frasi e/o citazioni da utilizzare al posto della risposta "ok:" quando il pc
+<!-- · predisporre una lista di frasi e/o citazioni da utilizzare al posto della risposta "ok:" quando il pc
 risponde, anziché scrivere "ok", scegliere una frase random dalla lista e utilizzarla come testo
-del messaggio di risposta del pc
+del messaggio di risposta del pc -->
+
+
 · visualizzare nella lista dei contatti l'ultimo messaggio inviato/ricevuto da ciascun contatto
 
 · inserire l'orario corretto nei messaggi (v. note day.js)
