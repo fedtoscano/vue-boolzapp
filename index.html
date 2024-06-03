@@ -113,7 +113,7 @@
 
                         <!-- MESSAGGIO -->
                     
-                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-fit overflow-x-auto text-justify min-w-[10%] max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, messageIndex) in contacts[this.activeContact].messages" :key="messageIndex">
+                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-fit overflow-x-auto text-justify min-w-[10%] max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex">
                             <h1 class="mb-1">{{message.message}}</h1>
                             <span class="text-[.7em] text-slate-500">{{message.date.split(" ")[1].slice(0,5)}}</span>
                             <button :class="(message.status==='sent') ? 'self-start' : 'self-end'" @click="toggleModifyDivVisibility(messageIndex)">

@@ -262,6 +262,7 @@ createApp({
 
             console.log("indice dopo lo splice")
             console.log(index)
+            
             this.visibleDivIndex=null
         }
         
