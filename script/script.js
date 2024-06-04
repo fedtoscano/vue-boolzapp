@@ -222,12 +222,6 @@ createApp({
 
     }
     },
-    computed:{
-        showDate(dateStr){
-            return DateTime.fromFormat(dateStr, "dD MM yyyy HH mm ss").toLocaleString(TIME_SIMPLE)
-            //10/01/2020 15:30:55
-        }
-    },
     methods: {
 
         focusContact: function(index){
@@ -338,7 +332,12 @@ createApp({
         //? UTILITIES
         randomNumber: function(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+        },
+    
+        showDate(dateStr){
+            return luxon.DateTime.fromFormat(dateStr,"dd/MM/yyyy HH:mm:ss").toLocaleString(DateTime.TIME_SIMPLE);
+        
+        },
     }
 }).mount('#app')
 

@@ -105,7 +105,11 @@
                             <div class="info-container ml-4">
                                 <span class="font-medium">{{contacts[activeContact].name}}</span>
                                 <p class="text-xs text-slate-700" v-if="!isUserOnline && contacts[activeContact].messages.length>0">Ultimo accesso oggi alle 
-                                    <span v-if="contacts[activeContact].messages.length>0">{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date}}</span>
+                                    <span v-if="contacts[activeContact].messages.length>0">
+                                        {{showDate(contacts[activeContact].messages[contacts[activeContact].messages.length-1].date)}}
+                                        <!-- {{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date}} -->
+
+                                    </span>
                                 </p>
                                 <p class="text-xs text-slate-700 italic" v-if="!contacts[activeContact].messages.length>0 && !isUserOnline">offline</p>
                                 <p class="text-xs text-slate-700" v-if="userIsWriting">sta scrivendo...</p>
@@ -153,6 +157,7 @@
                                 <h1 class="mb-1">{{message.message}}</h1>
                                 <span class="text-[.7em] text-slate-500">
                                     <!-- devo realizzare un if che distingua i messaggi già presenti nell'array con quelli che pusho successivamente -->
+                                    <!-- {{showDate(contacts[activeContact].messages.date)}} -->
                                     {{showDate(message.date)}}
                                 </span>
 
