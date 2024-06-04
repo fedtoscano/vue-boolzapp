@@ -48,7 +48,7 @@ del messaggio di risposta del pc -->
 
 ???
 · inserire l'orario corretto nei messaggi (v. note day.js)
-
+???
 
 <!-- · sotto al nome del contatto nella parte in alto a destra, cambiare l'indicazione dello stato:
 visualizzare il testo "sta scrivendo ... " nel timeout in cui il pc risponde, poi mantenere la scritta
@@ -65,8 +65,8 @@ suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra) -->
 
 
 
-· dare la possibilità all'utente di aggiungere una nuova conversazione, inserendo in un popup il
-nome e il link all'icona del nuovo contatto
+<!-- · dare la possibilità all'utente di aggiungere una nuova conversazione, inserendo in un popup il
+nome e il link all'icona del nuovo contatto -->
 
 · fare scroll in giù in automatico fino al messaggio più recente, quando viene aggiunto un nuovo
 messaggio alla conversazione (NB: potrebbe esserci bisogno di utilizzare nextTick:
