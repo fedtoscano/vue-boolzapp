@@ -6,7 +6,9 @@
     background-color: rgb(218, 219, 213)
 }
 
-
+.contact-list-container article:active{
+    background-color;
+}
 
 .msg-sent{
     background-color: rgb(214, 250, 187);
@@ -29,4 +31,12 @@
     text-align: end;
 }
 
+i{
+    padding: 10px;
+    cursor: pointer;
+}
+i:active, 
+i:hover{
+    background-color: rgb(231, 223, 223);
+}
 
