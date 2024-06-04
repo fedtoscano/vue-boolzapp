@@ -77,13 +77,9 @@
 
                             <div class="contact-info-container ml-4">
                                 <span>{{contact.name}}</span>
-                                <p class="text-slate-400 text-xs">{{ contact.messages[contact.messages.length-1].message }}</p>
-                                
-                                <!-- <p class="text-slate-400 text-xs">{{contacts[contactIndex].messages[contacts[contactIndex].messages.length-1].message}}</p> -->
-                            </div>
-
-                            <!-- <span class="absolute top-2 right-2 text-slate-400 text-xs">{{contacts[contactIndex].messages[contacts[contactIndex].messages.length-1].date.split(" ")[1].slice(0,5)}}</span> -->
-                            
+                                <p class="text-slate-400 text-xs" v-if="contact.messages.length>0">{{ contact.messages[contact.messages.length-1].message }}</p>
+                                <p class="text-slate-400 text-xs italic" v-else>non ci sono messaggi da mostrare</p>                             
+                            </div>                            
                         </article>
                     </div>
                 </section>
@@ -98,9 +94,10 @@
                             <img :src="`${contacts[activeContact].avatar}.jpg`" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
                             <div class="info-container">
                                 <span class="font-medium">{{contacts[activeContact].name}}</span>
-                                <p class="text-xs text-slate-700" v-if="!isUserOnline">Ultimo accesso oggi alle 
-                                    <!-- <span>{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date.split(" ")[1].slice(0,5)}}</span> -->
+                                <p class="text-xs text-slate-700" v-if="!isUserOnline && contacts[activeContact].messages.length>0">Ultimo accesso oggi alle 
+                                    <span v-if="contacts[activeContact].messages.length>0">{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date.split(" ")[1].slice(0,5)}}</span>
                                 </p>
+                                <p class="text-xs text-slate-700 italic" v-if="!contacts[activeContact].messages.length>0 && !isUserOnline">offline</p>
                                 <p class="text-xs text-slate-700" v-if="userIsWriting">sta scrivendo...</p>
                                 <p class="text-xs text-slate-700" v-if="isUserOnline && !userIsWriting">online</p>
 
