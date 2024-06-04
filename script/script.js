@@ -214,7 +214,7 @@ createApp({
         isOptionsPanelActive: false,
         isNewConversationPanelActive: false,
 
-        now: DateTime.now(),
+        // now: DateTime.now(),
 
         //NUOVO CONTATTO
         newContactName:'',
@@ -222,7 +222,12 @@ createApp({
 
     }
     },
-    
+    computed:{
+        showDate(dateStr){
+            return DateTime.fromFormat(dateStr, "dD MM yyyy HH mm ss").toLocaleString(TIME_SIMPLE)
+            //10/01/2020 15:30:55
+        }
+    },
     methods: {
 
         focusContact: function(index){
@@ -243,7 +248,7 @@ createApp({
 
         sendNewMessage: function(){
             const newMessage={
-                date: this.now.toLocaleString(DateTime.TIME_SIMPLE),
+                date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE),
                 message: this.userMessage,
                 status:'sent'
             }
@@ -268,7 +273,7 @@ createApp({
         contactReply: function(){
             // l-utente risponde
             const newReply={
-                date: this.now.toLocaleString(DateTime.TIME_SIMPLE),
+                date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE),
                 message: this.randomAnswers[this.randomNumber(0, this.randomAnswers.length-1)],
                 status:'received'
             }
@@ -330,7 +335,6 @@ createApp({
             this.isNewConversationPanelActive= false
         },
 
-
         //? UTILITIES
         randomNumber: function(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -338,4 +342,3 @@ createApp({
     }
 }).mount('#app')
 
-//https://png.pngtree.com/png-clipart/20190630/original/pngtree-jpg-file-document-icon-png-image_4166388.jpg

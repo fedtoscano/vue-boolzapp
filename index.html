@@ -153,7 +153,7 @@
                                 <h1 class="mb-1">{{message.message}}</h1>
                                 <span class="text-[.7em] text-slate-500">
                                     <!-- devo realizzare un if che distingua i messaggi già presenti nell'array con quelli che pusho successivamente -->
-                                    {{message.date}}
+                                    {{showDate(message.date)}}
                                 </span>
 
                                 <button :class="(message.status==='sent') ? 'self-start' : 'self-end'" @click="toggleModifyDivVisibility(messageIndex)">
