@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
     <!-- TAILWIND CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FONT AWESOME CDN -->
@@ -47,7 +45,7 @@
                                 </button>
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
 
-                                    <div class="w-[200px] h-[330px] text-white bg-[#c6d3bd] absolute top-6 left-14 text-sm p-5 rounded-lg" v-show="isNewConversationPanelActive">
+                                    <div class="z-10 w-[200px] h-[330px] text-white bg-[#c6d3bd] absolute top-6 left-14 text-sm p-5 rounded-lg" v-show="isNewConversationPanelActive">
                                         <h1 class="mb-6 text-lg text-center">Nuova chat</h1>
                                         <label for="contact-name" class="text-xs">Inserisci il nome del destinatario</label>
                                         <input type="text" placeholder="Inserisci un nome..." class=" text-slate-500 italic w-full mb-6" v-model="newContactName">
@@ -99,7 +97,7 @@
                 <!--? CHAT SECTION -->
                 <section class="chat h-full w-2/3">
 
-                        <!-- DESTINATARIO CHAT -->
+                    <!-- DESTINATARIO CHAT -->
                     <div class="user-navbar-container flex justify-between items-center h-[60px] bg-[#ebebeb]">
 
                         <div class="user-navbar-left h-full flex items-center ml-3">
@@ -107,12 +105,11 @@
                             <div class="info-container ml-4">
                                 <span class="font-medium">{{contacts[activeContact].name}}</span>
                                 <p class="text-xs text-slate-700" v-if="!isUserOnline && contacts[activeContact].messages.length>0">Ultimo accesso oggi alle 
-                                    <span v-if="contacts[activeContact].messages.length>0">{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date.split(" ")[1].slice(0,5)}}</span>
+                                    <span v-if="contacts[activeContact].messages.length>0">{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date}}</span>
                                 </p>
                                 <p class="text-xs text-slate-700 italic" v-if="!contacts[activeContact].messages.length>0 && !isUserOnline">offline</p>
                                 <p class="text-xs text-slate-700" v-if="userIsWriting">sta scrivendo...</p>
                                 <p class="text-xs text-slate-700" v-if="isUserOnline && !userIsWriting">online</p>
-
                             </div>
                         </div>
 
@@ -148,26 +145,30 @@
 
                     </div>
 
-                        <!-- BOX MESSAGGI -->
+                    <!-- BOX MESSAGGI -->
                     <div class="chat-container overflow-auto flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
+
                         <!-- MESSAGGIO -->
-                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-fit min-w-[10%] max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex">
-                            <h1 class="mb-1">{{message.message}}</h1>
-                            <span class="text-[.7em] text-slate-500">{{message.date.split(" ")[1].slice(0,5)}}</span>
+                        <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="relative w-fit min-w-[10%] max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex">
+                                <h1 class="mb-1">{{message.message}}</h1>
+                                <span class="text-[.7em] text-slate-500">
+                                    <!-- devo realizzare un if che distingua i messaggi già presenti nell'array con quelli che pusho successivamente -->
+                                    {{message.date}}
+                                </span>
 
-                            <button :class="(message.status==='sent') ? 'self-start' : 'self-end'" @click="toggleModifyDivVisibility(messageIndex)">
-                                <i class="fa-solid fa-chevron-down" :class="(message.status==='received') ? 'text-end' : ''"></i>
-                            </button>
-
-                            <div class="modify-message flex justify-center items-center size-16 rounded-lg absolute translate-y-[55px] bg-[#C6D3BD]" :class="{'-translate-x-[60px]': message.status === 'sent','translate-x-[60px]': message.status === 'received'}" v-show="visibleDivIndex === messageIndex">
-                                <button @click="removeMessage(messageIndex)">
-                                    <i class="fa-solid fa-trash"></i>
+                                <button :class="(message.status==='sent') ? 'self-start' : 'self-end'" @click="toggleModifyDivVisibility(messageIndex)">
+                                    <i class="fa-solid fa-chevron-down" :class="(message.status==='received') ? 'text-end' : ''"></i>
                                 </button>
-                            </div>
+
+                                <div class="z-10 modify-message flex justify-center items-center size-16 rounded-lg absolute translate-y-[70px] bg-[#C6D3BD]" :class="{'-translate-x-[60px]': message.status === 'sent','-right-10': message.status === 'received'}" v-show="visibleDivIndex === messageIndex">
+                                    <button @click="removeMessage(messageIndex)">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
                         </article>
                     </div>
 
-                        <!-- INPUT FIELD -->
+                    <!-- INPUT FIELD -->
                     <div class="user-chat-input flex justify-between items-center h-[60px] bg-[#ebebeb] p-6">
                         <i class="fa-regular fa-face-smile text-2xl text-slate-500"></i>
                         <input type="text" v-model="userMessage" placeholder="Scrivi un messaggio" class="w-5/6 py-2 px-3 text-sm rounded-md" @keyup.enter="sendNewMessage">

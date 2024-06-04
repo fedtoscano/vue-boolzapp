@@ -49,6 +49,13 @@ del messaggio di risposta del pc -->
 ???
 · inserire l'orario corretto nei messaggi (v. note day.js)
 ???
+ho due situazioni:
+    1. quando i messaggi sono già presenti nell'array
+        utilizzo luxon per formattare stringhe già esistenti
+    2. quando i messaggi vengono pushati (messaggi nuovi)
+        creo degli oggetti nuovi con luxon e li formatto in maniera simile
+
+        date: DateTime.now().toLocaleString(TIME_24_SIMPLE)
 
 <!-- · sotto al nome del contatto nella parte in alto a destra, cambiare l'indicazione dello stato:
 visualizzare il testo "sta scrivendo ... " nel timeout in cui il pc risponde, poi mantenere la scritta

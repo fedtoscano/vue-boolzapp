@@ -2,6 +2,8 @@
 const { createApp } = Vue
 const { DateTime } = luxon
 
+// console.log(DateTime.now().toLocaleString(DateTime.TIME_SIMPLE))
+
 createApp({
     data() {
     return {
@@ -189,18 +191,15 @@ createApp({
         isOptionsPanelActive: false,
         isNewConversationPanelActive: false,
 
+        now: DateTime.now(),
+
         //NUOVO CONTATTO
         newContactName:'',
         newContactImgUrl: '',
 
     }
     },
-
-    computed:{
-    lastMessageText(){
-        // return this.contacts[this.activeContact].messages[this.contacts[this.activeContact].messages.length - 1].message;
-    }
-},
+    
     methods: {
 
         focusContact: function(index){
@@ -221,7 +220,7 @@ createApp({
 
         sendNewMessage: function(){
             const newMessage={
-                date:'10/01/2020 16:15:22',
+                date: this.now.toLocaleString(DateTime.TIME_SIMPLE),
                 message: this.userMessage,
                 status:'sent'
             }
@@ -246,7 +245,7 @@ createApp({
         contactReply: function(){
             // l-utente risponde
             const newReply={
-                date:'10/01/2020 16:15:22',
+                date: this.now.toLocaleString(DateTime.TIME_SIMPLE),
                 message: this.randomAnswers[this.randomNumber(0, this.randomAnswers.length-1)],
                 status:'received'
             }
@@ -308,7 +307,7 @@ createApp({
             this.isNewConversationPanelActive= false
         },
 
-        
+
         //? UTILITIES
         randomNumber: function(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
