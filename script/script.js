@@ -279,16 +279,14 @@ createApp({
             this.visibleDivIndex=null
         },
 
-        deleteMessage: function(){
-            console.log('Contacts:', this.contacts);
-            console.log('Active Contact:', this.activeContact);
-            console.log('Messages:', this.contacts[this.activeContact].messages);
-            
+        deleteMessage: function(){            
             this.contacts[this.activeContact].messages.splice(0, this.contacts[this.activeContact].messages.length)
+            this.isOptionsPanelActive = false;
         },
 
         deleteConversation: function(){
-            //cancello la conversazione
+            this.contacts.splice(this.activeContact, 1)
+            this.isOptionsPanelActive = false;
         },
 
         //? UTILITIES
