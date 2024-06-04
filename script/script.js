@@ -178,18 +178,25 @@ createApp({
             "Posso già intuire che il codice non funzionerà...", 
             "Ammazza oh",
         ],
-        visibleDivIndex: null,
+
         activeContact: 0,
         userMessage: "",
         userFilter:"",
+        visibleDivIndex: null,
+        
         userIsWriting: false,
         isUserOnline: false, 
         isOptionsPanelActive: false,
-
+        // lastMessageText: this.lastMessageText(),
+        lastMessageDate:''
         }
     },
 
-
+    computed:{
+    lastMessageText(){
+        // return this.contacts[this.activeContact].messages[this.contacts[this.activeContact].messages.length - 1].message;
+    }
+},
     methods: {
 
         focusContact: function(index){
@@ -257,8 +264,31 @@ createApp({
         },
 
         removeMessage: function(index){
-            this.contacts[this.activeContact].messages.splice(index, 1);
+            if(index<=this.contacts[this.activeContact].messages.length-1){
+                console.log(index)
+                // console.log(this.contacts[this.activeContact].messages[this.activeContact.messages.length-1])
+                this.contacts[this.activeContact].messages.splice(index, 1);
+                console.log("index if", index)
+                console.log(this.contacts[this.activeContact].messages)
+            } else{
+                this.contacts[this.activeContact].messages.splice(index-1, 1)
+                console.log("index else", index)
+                console.log(this.contacts[this.activeContact].messages)
+            }
+
             this.visibleDivIndex=null
+        },
+
+        deleteMessage: function(){
+            console.log('Contacts:', this.contacts);
+            console.log('Active Contact:', this.activeContact);
+            console.log('Messages:', this.contacts[this.activeContact].messages);
+            
+            this.contacts[this.activeContact].messages.splice(0, this.contacts[this.activeContact].messages.length)
+        },
+
+        deleteConversation: function(){
+            //cancello la conversazione
         },
 
         //? UTILITIES

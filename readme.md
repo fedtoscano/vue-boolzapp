@@ -71,8 +71,10 @@ nome e il link all'icona del nuovo contatto
 · fare scroll in giù in automatico fino al messaggio più recente, quando viene aggiunto un nuovo
 messaggio alla conversazione (NB: potrebbe esserci bisogno di utilizzare nextTick:
 https://vuejs.org/v2/api/#Vue-nextTick)
+
 · aggiungere le emoticons, tramite l'utilizzo di una libreria, ad esempio: https://www.npmjs.com
 /package/vue-emoji-picker
+
 Grafica
 
 . visualizzare un messaggio di benvenuto che invita l'utente a selezionare un contatto dalla lista
