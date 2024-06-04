@@ -187,9 +187,13 @@ createApp({
         userIsWriting: false,
         isUserOnline: false, 
         isOptionsPanelActive: false,
-        // lastMessageText: this.lastMessageText(),
-        lastMessageDate:''
-        }
+        isNewConversationPanelActive: false,
+
+        //NUOVO CONTATTO
+        newContactName:'',
+        newContactImgUrl: '',
+
+    }
     },
 
     computed:{
@@ -289,9 +293,25 @@ createApp({
             this.isOptionsPanelActive = false;
         },
 
+        startNewConversation: function(){
+            // inizia una nuova conversazione
+            const newContact= {
+                name:this.newContactName,
+                avatar: this.newContactImgUrl.split('.jpg')[0], 
+                visible: true, 
+                messages: []
+            }
+
+            this.contacts.unshift(newContact)
+            this.newContactName=''
+            this.newContactImgUrl=''
+            this.isNewConversationPanelActive= false
+        },
         //? UTILITIES
         randomNumber: function(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     }
 }).mount('#app')
+
+//https://png.pngtree.com/png-clipart/20190630/original/pngtree-jpg-file-document-icon-png-image_4166388.jpg

@@ -41,10 +41,21 @@
                         <div class="user-navbar-right">
                             <div class="icons-container text-slate-400 text-2xl me-5 flex relative items-center">
                                 <i class="fa-solid fa-circle-notch me-5"></i>
-                                <i class="fa-solid fa-message me-5"></i>
+                                <button @click="isNewConversationPanelActive=!isNewConversationPanelActive">
+                                    <i class="fa-solid fa-message me-5"></i>
+                                </button>
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
 
+                                    <div class="w-[200px] h-[330px] text-white bg-[#c6d3bd] absolute top-6 left-14 text-sm p-5 rounded-lg" v-show="isNewConversationPanelActive">
+                                        <h1 class="mb-6 text-lg text-center">Nuova chat</h1>
+                                        <label for="contact-name" class="text-xs">Inserisci il nome del destinatario</label>
+                                        <input type="text" placeholder="Inserisci un nome..." class=" text-slate-500 italic w-full mb-6" v-model="newContactName">
 
+                                        <label for="contact-pic" class="text-xs">Inserisci l'immagine del destinatario (solo formato .jpg)</label>
+                                        <input type="url" id="imageUrl" name="imageUrl" placeholder="https://..." class=" text-slate-500 italic w-full mb-6" v-model="newContactImgUrl">
+
+                                        <button @click="startNewConversation">Crea nuova conversazione</button>
+                                    </div>
                             </div>
                         </div>
 
@@ -68,11 +79,11 @@
                     </div>
 
                     <!-- LISTA DEI CONTATTI -->
-                    <div class="contact-list-container h-[calc(100%-180px)] bg-white flex flex-col gap-3.5">
+                    <div class="contact-list-container h-[calc(100%-180px)] bg-white flex flex-col gap-3.5 overflow-auto">
                         <article v-for="(contact, contactIndex) in contacts" :key="contact.name" class="flex items-center hover:bg-slate-300 relative" @click="focusContact(contactIndex)" :class="{'hidden': contact.visible===false}">
 
                             <div class="image-container max-w-[50px]">
-                                <img :src="`${contact.avatar}.jpg`" :alt="`${contact.name} profile pic`" class="w-full rounded-full">
+                                <img :src="`${contact.avatar}.jpg`" :alt="`${contact.name} profile pic`" class="w-[50px] rounded-full">
                             </div> 
 
                             <div class="contact-info-container ml-4">
@@ -92,7 +103,7 @@
 
                         <div class="user-navbar-left h-full flex items-center ml-3">
                             <img :src="`${contacts[activeContact].avatar}.jpg`" alt="A user profile/'s picture" class="w-[50px] h-[50px] rounded-full ">
-                            <div class="info-container">
+                            <div class="info-container ml-4">
                                 <span class="font-medium">{{contacts[activeContact].name}}</span>
                                 <p class="text-xs text-slate-700" v-if="!isUserOnline && contacts[activeContact].messages.length>0">Ultimo accesso oggi alle 
                                     <span v-if="contacts[activeContact].messages.length>0">{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].date.split(" ")[1].slice(0,5)}}</span>
@@ -110,7 +121,6 @@
                                 <button @click="isOptionsPanelActive=!isOptionsPanelActive">
                                     <i class="fa-solid fa-ellipsis-vertical"></i>
                                 </button>
-
 
                                 <div class="w-[120px] h-[80px] bg-[#C6D3BD] rounded-lg absolute right-2 top-4 p-1" v-show="isOptionsPanelActive">
 
@@ -139,7 +149,6 @@
 
                         <!-- BOX MESSAGGI -->
                     <div class="chat-container overflow-auto flex flex-col gap-4 h-[calc(100%-120px)] bg-[url('./img/mine.jpg')] p-16">
-
                         <!-- MESSAGGIO -->
                         <article  :class="(message.status==='sent') ? 'msg-sent' : 'msg-received'" class="w-fit min-w-[10%] max-w-[40%] py-3 px-3 rounded-lg mb-2.5 text-sm flex flex-col" v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex">
                             <h1 class="mb-1">{{message.message}}</h1>

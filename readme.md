@@ -56,12 +56,12 @@ visualizzare il testo "sta scrivendo ... " nel timeout in cui il pc risponde, po
 corretto -->
 
 
-· dare la possibilità all'utente di cancellare tutti i messaggi di un contatto o di cancellare l'intera
+<!-- · dare la possibilità all'utente di cancellare tutti i messaggi di un contatto o di cancellare l'intera
 chat con tutti i suoi dati: cliccando sull'icona con i tre pallini in alto a destra, si apre un
 dropdown menu in cui sono presenti le voci "Elimina messaggi" ed "Elimina chat"; cliccando su
 di essi si cancellano rispettivamente tutti i messaggi di quel contatto (quindi rimane la
 conversazione vuota) oppure l'intera chat comprensiva di tutti i dati del contatto oltre che tutti i
-suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra)
+suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra) -->
 
 
 
